@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-
+import { useState } from "react";
+import "./FormComponent.css"
 function Form() {
     const [skills, setSkills] = useState([]);
     const [Role, setRole] = useState("");
@@ -42,11 +42,12 @@ function Form() {
     };
 
     return (
-        <div>
+        <div class="formContainer">
             <form onSubmit={handleSubmit}>
-                <label>
-                    Name:
-                    <input
+                <label id="Label">
+                    Name
+                    <input id="Input"
+                        placeholder="Enter your Name"
                         type="text"
                         value={Name}
                         onChange={(e) => CallName(e.target.value)}
@@ -55,9 +56,10 @@ function Form() {
 
                 <br /><br />
 
-                <label>
+                <label id="Label">
                     Role:
                     <input
+                        id="Input"
                         type="text"
                         value={Role}
                         onChange={(e) => setRole(e.target.value)}
@@ -66,9 +68,11 @@ function Form() {
 
                 <br /><br />
 
-                <label>
+                <label id="Label">
                     Skills (comma separated):
                     <input
+                        id="Input"
+                        placeholder=""
                         type="text"
                         onChange={(e) => setSkills(e.target.value.split(","))}
                     />
@@ -76,9 +80,10 @@ function Form() {
 
                 <br /><br />
 
-                <label>
+                <label id="Label">
                     Bio:
                     <input
+                        id="Input"
                         type="text"
                         value={Bio}
                         onChange={(e) => setBio(e.target.value)}
@@ -87,7 +92,7 @@ function Form() {
 
                 <br /><br />
 
-                <input type="file" onChange={handleImageUpload} />
+                <input id="Label" type="file" onChange={handleImageUpload} />
 
                 <br /><br />
 
@@ -107,15 +112,15 @@ function ProfileCard({ userData }) {
     const [showBio, setShowBio] = useState(true);
 
     return (
-        <div>
+        <div class="profile">
             <h1>Profile Card</h1>
 
-            <img src={userData.image} width="120" alt="profile" />
+            <img id="Img" src={userData.image} width="120" alt="profile" />
 
             <h2>{userData.Name}</h2>
             <p>{userData.Role}</p>
 
-            <button id="togglebtn" onClick={() => setShowBio(showBio)}>
+            <button id="togglebtn" onClick={() => setShowBio(!showBio)}>
                 {showBio ? "Hide Bio" : "Show Bio"}
             </button>
 
