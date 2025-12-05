@@ -8,10 +8,8 @@ function Form() {
     const [Img, setImg] = useState(null);
     const [preview, setPreview] = useState(null);
 
-    // ✅ ✅ MISSING STATE (THIS WAS YOUR MAIN BUG)
     const [userData, setUserData] = useState(null);
 
-    // ✅ Image Upload Handler
     const handleImageUpload = (e) => {
         const file = e.target.files[0];
         if (!file) return;
@@ -20,7 +18,7 @@ function Form() {
         setPreview(URL.createObjectURL(file));
     };
 
-    // ✅ Submit Handler
+    //  Submit Handler
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -32,10 +30,9 @@ function Form() {
             image: preview,
         };
 
-        setUserData(finalData); // ✅ THIS WAS MISSING
+        setUserData(finalData); 
         console.log("Final Submitted Data:", finalData);
 
-        // ✅ Reset form AFTER storing data
         CallName("");
         setRole("");
         setBio("");
@@ -101,30 +98,36 @@ function Form() {
                 <button type="submit">Submit</button>
             </form>
 
-            {/* ✅ ✅ RENDER PROFILE CARD HERE */}
             {userData && <ProfileCard userData={userData} />}
         </div>
     );
 }
 
 function ProfileCard({ userData }) {
-    return (
-        <div>
-            <h1>Profile Card</h1>
+  const [showBio, setShowBio] = useState(true); 
 
-            <img src={userData.image} width="120" alt="profile" />
+  return (
+    <div>
+      <h1>Profile Card</h1>
 
-            <h2>{userData.Name}</h2>
-            <p>{userData.Role}</p>
-            <p>{userData.Bio}</p>
+      <img src={userData.image} width="120" alt="profile" />
 
-            <div>
-                {userData.skills.map((skill, index) => (
-                    <span key={index}> {skill} </span>
-                ))}
-            </div>
-        </div>
-    );
+      <h2>{userData.Name}</h2>
+      <p>{userData.Role}</p>
+
+      <button id="togglebtn" onClick={() => setShowBio(!showBio)}>
+        {showBio ? "Hide Bio" : "Show Bio"}
+      </button>
+
+      {showBio && <p>{userData.Bio}</p>}
+
+      <div>
+        {userData.skills.map((skill, index) => (
+          <span key={index}> {skill} </span>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 export default Form;
