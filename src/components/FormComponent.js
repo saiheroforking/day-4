@@ -1,109 +1,130 @@
 import React, { useState } from "react";
 
 function Form() {
-  const [skills, setSkills] = useState([]);
-  const [Role, setRole] = useState("");
-  const [Name, CallName] = useState("");
-  const [Bio, setBio] = useState("");
-  const [Img, setImg] = useState(null);
-  const [preview, setPreview] = useState(null); // ✅ Missing state added
+    const [skills, setSkills] = useState([]);
+    const [Role, setRole] = useState("");
+    const [Name, CallName] = useState("");
+    const [Bio, setBio] = useState("");
+    const [Img, setImg] = useState(null);
+    const [preview, setPreview] = useState(null);
 
-  // ✅ Correct Image Upload Handler
-  const handleImageUpload = (e) => {
-    const file = e.target.files[0];
+    // ✅ ✅ MISSING STATE (THIS WAS YOUR MAIN BUG)
+    const [userData, setUserData] = useState(null);
 
-    if (!file) return; // safety check
+    // ✅ Image Upload Handler
+    const handleImageUpload = (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
 
-    setImg(file); // Stores actual image file
-    setPreview(URL.createObjectURL(file)); // Creates browser preview
-  };
-
-  // ✅ Submit Handler
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const userData = {
-      Name,
-      Role,
-      Bio,
-      skills,
-      image: preview,
+        setImg(file);
+        setPreview(URL.createObjectURL(file));
     };
 
-    console.log("Final Submitted Data:", userData);
+    // ✅ Submit Handler
+    const handleSubmit = (e) => {
+        e.preventDefault();
 
-    // ✅ Reset form
-    CallName("");
-    setRole("");
-    setBio("");
-    setSkills([]);
-    setImg(null);
-    setPreview(null);
-  };
+        const finalData = {
+            Name,
+            Role,
+            Bio,
+            skills,
+            image: preview,
+        };
 
-  return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        
-        <label>
-          Name:
-          <input
-            type="text"
-            value={Name}
-            onChange={(e) => CallName(e.target.value)}
-          />
-        </label>
+        setUserData(finalData); // ✅ THIS WAS MISSING
+        console.log("Final Submitted Data:", finalData);
 
-        <br /><br />
+        // ✅ Reset form AFTER storing data
+        CallName("");
+        setRole("");
+        setBio("");
+        setSkills([]);
+        setImg(null);
+        setPreview(null);
+    };
 
-        <label>
-          Role:
-          <input
-            type="text"
-            value={Role}
-            onChange={(e) => setRole(e.target.value)}
-          />
-        </label>
+    return (
+        <div>
+            <form onSubmit={handleSubmit}>
+                <label>
+                    Name:
+                    <input
+                        type="text"
+                        value={Name}
+                        onChange={(e) => CallName(e.target.value)}
+                    />
+                </label>
 
-        <br /><br />
+                <br /><br />
 
-        <label>
-          Skills (comma separated):
-          <input
-            type="text"
-            onChange={(e) =>
-              setSkills(e.target.value.split(","))
-            }
-          />
-        </label>
+                <label>
+                    Role:
+                    <input
+                        type="text"
+                        value={Role}
+                        onChange={(e) => setRole(e.target.value)}
+                    />
+                </label>
 
-        <br /><br />
+                <br /><br />
 
-        <label>
-          Bio:
-          <input
-            type="text"
-            value={Bio}
-            onChange={(e) => setBio(e.target.value)}
-          />
-        </label>
+                <label>
+                    Skills (comma separated):
+                    <input
+                        type="text"
+                        onChange={(e) => setSkills(e.target.value.split(","))}
+                    />
+                </label>
 
-        <br /><br />
+                <br /><br />
 
-        {/* ✅ Correct File Input (NO value attribute & correct handler) */}
-        <input type="file" onChange={handleImageUpload} />
+                <label>
+                    Bio:
+                    <input
+                        type="text"
+                        value={Bio}
+                        onChange={(e) => setBio(e.target.value)}
+                    />
+                </label>
 
-        <br /><br />
+                <br /><br />
 
-        {/* ✅ Image Preview */}
-        {preview && <img src={preview} width="100" alt="preview" />}
+                <input type="file" onChange={handleImageUpload} />
 
-        <br /><br />
+                <br /><br />
 
-        <button type="submit">Submit</button>
-      </form>
-    </div>
-  );
+                {preview && <img src={preview} width="100" alt="preview" />}
+
+                <br /><br />
+
+                <button type="submit">Submit</button>
+            </form>
+
+            {/* ✅ ✅ RENDER PROFILE CARD HERE */}
+            {userData && <ProfileCard userData={userData} />}
+        </div>
+    );
+}
+
+function ProfileCard({ userData }) {
+    return (
+        <div>
+            <h1>Profile Card</h1>
+
+            <img src={userData.image} width="120" alt="profile" />
+
+            <h2>{userData.Name}</h2>
+            <p>{userData.Role}</p>
+            <p>{userData.Bio}</p>
+
+            <div>
+                {userData.skills.map((skill, index) => (
+                    <span key={index}> {skill} </span>
+                ))}
+            </div>
+        </div>
+    );
 }
 
 export default Form;
