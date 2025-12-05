@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# React Profile Card Form App 👤✨
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A clean and interactive **React.js Profile Form Application** that allows users to create a profile by entering their **Name, Role, Bio, Skills**, and uploading a **Profile Image**. Once submitted, all the information is displayed in a dynamic **Profile Card** with a **Show/Hide Bio toggle** feature.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🔗 Live Demo
 
-### `npm start`
+🚀 **Live Application:**  
+https://saiheroforking.github.io/day-4/
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+📂 **GitHub Repository:**  
+https://github.com/saiheroforking/day-4
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## ✨ Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+✅ User Profile Form  
+✅ Image Upload with Live Preview  
+✅ Skills Input (Comma Separated)  
+✅ Dynamic Profile Card Display  
+✅ Toggle Show / Hide Bio  
+✅ State Management using React Hooks (`useState`)  
+✅ Clean UI with CSS Styling  
+✅ Responsive Layout  
+✅ Deployed using GitHub Pages  
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠️ Technologies Used
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **React.js**
+- **JavaScript (ES6)**
+- **HTML5**
+- **CSS3**
+- **GitHub Pages**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 📁 Project Structure
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+'''
+day-4/
+│
+├── public/
+│ ├── index.html
+│ └── favicon.ico
+│
+├── src/
+│ ├── App.js
+│ ├── App.css
+│ ├── index.js
+│ ├── FormComponent.js
+│ └── FormComponent.css
+│
+├── package.json
+├── package-lock.json
+└── README.md
+'''
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📄 File Description
 
-## Learn More
+| File Name | Description |
+|----------|-------------|
+| `index.js` | Entry point of the React application |
+| `App.js` | Main App component |
+| `FormComponent.js` | Contains Form logic, Image Upload, Profile Card |
+| `FormComponent.css` | Styling for Form & Profile Card |
+| `App.css` | Global styles |
+| `package.json` | Dependencies and project scripts |
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## ⚙️ Installation & Local Setup
 
-### Code Splitting
+Follow these steps to run the project locally:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 1️⃣ Clone the Repository
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+git clone https://github.com/saiheroforking/day-4.git
