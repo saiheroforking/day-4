@@ -30,7 +30,7 @@ function Form() {
             image: preview,
         };
 
-        setUserData(finalData); 
+        setUserData(finalData);
         console.log("Final Submitted Data:", finalData);
 
         CallName("");
@@ -104,30 +104,30 @@ function Form() {
 }
 
 function ProfileCard({ userData }) {
-  const [showBio, setShowBio] = useState(true); 
+    const [showBio, setShowBio] = useState(true);
 
-  return (
-    <div>
-      <h1>Profile Card</h1>
+    return (
+        <div>
+            <h1>Profile Card</h1>
 
-      <img src={userData.image} width="120" alt="profile" />
+            <img src={userData.image} width="120" alt="profile" />
 
-      <h2>{userData.Name}</h2>
-      <p>{userData.Role}</p>
+            <h2>{userData.Name}</h2>
+            <p>{userData.Role}</p>
 
-      <button id="togglebtn" onClick={() => setShowBio(!showBio)}>
-        {showBio ? "Hide Bio" : "Show Bio"}
-      </button>
+            <button id="togglebtn" onClick={() => setShowBio(showBio)}>
+                {showBio ? "Hide Bio" : "Show Bio"}
+            </button>
 
-      {showBio && <p>{userData.Bio}</p>}
+            {showBio && <p>{userData.Bio}</p>}
 
-      <div>
-        {userData.skills.map((skill, index) => (
-          <span key={index}> {skill} </span>
-        ))}
-      </div>
-    </div>
-  );
+            <div>
+                {userData.skills.map((skill, index) => (
+                    <span key={index}> {skill} </span>
+                ))}
+            </div>
+        </div>
+    );
 }
 
 export default Form;
